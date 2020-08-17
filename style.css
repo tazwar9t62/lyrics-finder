@@ -3,8 +3,11 @@ body {
     color: #ffffff;
     background-image: url(images/bg-image.png);
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
     background-position: top;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 
 }
 
@@ -46,6 +49,10 @@ body {
     border-radius: 15px;
 }
 
+.single-result:hover {
+    background: rgba(142, 24, 158, 0.4);
+}
+
 #artist {
     color: orange;
     font-size: 20px;
@@ -53,6 +60,10 @@ body {
 
 .single-result .track-name {
     text-shadow: 2px 5px black;
+}
+
+#img-artist {
+    border: 2px solid #28a745;
 }
 
 #lyrics {
