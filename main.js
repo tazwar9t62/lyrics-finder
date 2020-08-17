@@ -5,13 +5,19 @@ document.querySelector(".search-btn").addEventListener("click", function () {
 
     let searchInput = document.getElementById("search-input").value.trim();
     searchResult(searchInput);
+    document.querySelector(".search-result").style.display = "block";
+
 });
 
 let lyricsBtn = document.getElementById("result");
 lyricsBtn.addEventListener("click", e => {
         let clickedBtn = e.target;
         if (clickedBtn.tagName === "BUTTON") {
-            console.log("clicked haha");
+            let artist_name = clickedBtn.getAttribute("artist-name");
+            let track_name = clickedBtn.getAttribute("track-name");
+            getLyrics(artist_name, track_name);
+
+
         }
     }
 
@@ -40,10 +46,10 @@ function showResult(data) {
         </div>
 
        <div class="col-md-6">
-            <h3 class="track-name">${song[index].title} - <span id="artist">${song[index].artist.name}</span></h3>
+            <h3 class="track-name"> <span> ${song[index].title} </span> - <span id="artist">${song[index].artist.name}</span></h3>
         </div> 
         <div class="col-md-3 text-md-right text-center">
-            <button class="btn btn-outline-success" id="lyrics-btn">Lyrics</button>
+            <button class="btn btn-outline-success" id="lyrics-btn" track-name="${song[index].title}" artist-name="${song[index].artist.name}">Lyrics</button>
         </div>
     </div>`
 
@@ -54,12 +60,20 @@ function showResult(data) {
     }
 }
 
-function getLyrics(artist, track_name) {
-    fetch(`${api}/v1/${artist}/${track_name}`)
+function getLyrics(artist_name, track_name) {
+    fetch(`${api}/v1/${artist_name}/${track_name}`)
         .then(response => response.json())
         .then(data => {
             let lyrics = data.lyrics;
-            document.querySelector(".lyric").innerText = lyrics;
+            if (lyrics == undefined) {
+                document.querySelector(".titleName").innerText = track_name;
+                document.querySelector(".lyric").innerText = "Sorry lyrics not found for this song!";
+            } else {
+                document.querySelector(".lyric").innerText = lyrics;
+                document.querySelector(".titleName").innerText = `${track_name} (${artist_name})`;
+
+            }
+            document.querySelector(".search-result").style.display = "none";
 
         })
 }
