@@ -22,7 +22,7 @@
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
                 aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
-                <img src="images/toggler-icon.svg" alt="">
+                <img src="images/toggler-icon.svg"  alt="toggle-icon">
             </button>
             <div class="collapse navbar-collapse" id="collapsibleNavId">
                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
@@ -46,30 +46,22 @@
 
         <main class="content-area">
             <div class="search-bar col-md-6 mx-auto">
-                <h1 class="text-center">Lyrics Search</h1>
+                <h1 class="text-center title">Search Lyrics!</h1>
                 <div class="search-box my-5">
                     <input type="text" class="form-control" placeholder="Enter your artist song name" id="search-input">
                     <button class="btn btn-success search-btn">Search</button>
                 </div>
             </div>
-            <!-- === Simple results === -->
-  <div class="search-result col-md-8 mx-auto" id="result">
-
-              
+            <!-- === Song suggestion results === -->
+  <div class="search-result col-md-8 mx-auto" id="result">         
             </div>
-            <!-- Single Lyrics -->
+            <!-- Song's Lyrics -->
             <div class="single-lyrics text-center">
                 <button class="btn go-back">&lsaquo;</button>
                 <h2 class="text-success mb-4 titleName"></h2>
-                <pre class="lyric text-white">
-   
+                <pre class="lyric" id="lyrics">
                 </pre>
             </div>
-            <!-- === Fancy results === -->
-          
-
-
-
         </main>
     </div>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
