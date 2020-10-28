@@ -10,7 +10,7 @@
 
 ### 🏠( super light and fancy single page website for music lovers 😉)
 
-### ✨ [Demo](https://creative-agency-e5670.web.app/)
+### ✨ [Demo](http://lyrics-app.tazwar.me/)
 
 ### 💻Technologies used:
 
